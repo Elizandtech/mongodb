@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <title>Edit Pika</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="container">
+            <a href="/"><button class="btn btn-primary">Back to Pikas</button></a>
+            <div class="card my-5">
+                <div class="card-body">
+                    <h3 class="card-title">Edit <%=pikainfo.name%></h3>
+                    <form action="/pikas/<%=pikainfo.id%>" method="POST"> 
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" id="name" name="name" value="<%=pikainfo.name%>">
+                        </div>
+                        <div class="form-group">
+                            <label for="age">Age</label>
+                            <input type="text" class="form-control" id="age" name="age" value="<%=pikainfo.age%>">
+                        </div>
+                        <div class="form-group">
+                                <label for="fur_color">Fur Color</label>
+                                <input type="text" class="form-control" id="fur_color" name="fur_color" value="<%=pikainfo.fur_color%>">
+                            </div>
+                            <div class="form-group">
+                                <label for="food">Food</label>
+                                <input type="text" class="form-control" id="food" name="food" value="<%=pikainfo.food%>">
+                            </div>
+                        <button type="submit" class="btn btn-success mx-3">Edit</button>
+                        
+                    </form>
+                </div>
+            </div>
+            <%#- JSON.stringify(messages) %> 
+            <!-- based on the structure of your messages, determine how to display them -->
+            <% if(messages.pika_edit) { %>
+                <% for (var msg of messages.pika_edit) { %>
+                <h4 style="color: red"  ><%= msg %></h4>
+                <% } %>
+            <% } %>
+        </div>
+    </body>
+</html>

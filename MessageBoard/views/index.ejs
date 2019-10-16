@@ -1,0 +1,65 @@
+<html>
+    <head>
+        <title>Message Board</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="container">
+            <div>
+                <h1 class="text-center"> Message Board</h1>
+            </div>
+            <%#- JSON.stringify(messages) %> 
+            <!-- based on the structure of your messages, determine how to display them -->
+            <% if(messages.mess) { %>
+                <% for (var msg of messages.mess) { %>
+                <p style="color: red"  ><%= msg %></p>
+                <% } %>
+            <% } %>
+            <div class="card my-5">
+                <div class="card-body">
+                    <h5 class="card-title">Create Message</h5>
+                    <form action="/messages" method="POST">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" id="name" name="name">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <input type="text" class="form-control" id="message" name="message">
+                        </div>
+                        <button type="submit" class="btn btn-success">Add Message</button>
+                    </form>
+                </div>
+                <div class="card-body mx-5">
+                <% allmess.forEach(function (message){ %>
+                    <h4 class="card-title">Name: <%=message.name%></h4>
+                    <h4 class="card-title">Message: <%=message.message%></h4>   
+                    <div class="card-text mx-5">
+                        <% message.comments.forEach(function(comment) {%>
+                        <p>Name: <%=comment.name%></p>
+                        <p>Comment: <%=comment.comment%></p>
+                        <%})%>
+                    </div> 
+                    <h5 class="card-title">Add Comment</h5>
+                    <% if(messages.comm) { %>
+                        <%for (var msg of messages.comm) { %>
+                            <p style="color: red"  ><%= msg %></p>
+                        <%} %>
+                    <% } %>
+                    <form action="/comments/<%=message.id%>" method="POST">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" id="name" name="name">
+                        </div>
+                        <div class="form-group">
+                            <label for="comment">Comment</label>
+                            <input type="text" class="form-control" id="comment" name="comment">
+                        </div>
+                        <button type="submit" class="btn btn-success">Add Comment</button>
+                    </form>
+                <%})%>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

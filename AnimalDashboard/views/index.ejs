@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <title>Pika Dashboard</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="container">
+            <h1 class="text-center">All Pikas!</h1>
+            <table class="table table-striped my-5">
+                <thead>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Fur Color</th>
+                    <th>Food</th>
+                    <th>Action</th>
+                </thead>
+                <tbody>
+                <% pikas.forEach(function(pika){ %>
+                    <tr>
+                        <td scope="row">
+                            <a href="/pikas/<%=pika.id%>"><p><%=pika.name%></p></a>
+                        </td>
+                        <td>
+                            <p><%=pika.age%></p>
+                        </td>
+                        <td>
+                            <p><%=pika.fur_color%></p>
+                        </td>
+                        <td>
+                            <p><%=pika.food%></p>
+                        </td>
+                        <td>
+                            <a href="/pikas/edit/<%=pika.id%>">Edit</a> | <a href="/pikas/delete/<%=pika.id%>">Delete</a>
+                        </td>
+                    </tr>
+                <% })%>
+                </tbody>
+            </table>
+            <a href="/pikas/new"><button class="btn btn-primary">Add a Pika!</button></a>
+        </div>
+    </body>

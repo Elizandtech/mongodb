@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <title>Make a Quote</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="container">
+            <div class="card my-5">
+                <div class="card-body">
+                    <h3 class="card-title">Make a Quote</h3>
+                    <form action="/quotes" method="POST">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" id="name" name="name">
+                        </div>
+                        <div class="form-group">
+                            <label for="quote">Quote</label>
+                            <input type="text" class="form-control" id="quote" name="quote">
+                        </div>
+                        <button type="submit" class="btn btn-success mx-3">Add My Quote!! :)</button>
+                    </form>
+                    <a href="/quotes"><button class="btn btn-primary">Skip to Quotes</button></a>
+                </div>
+            </div>
+            <%#- JSON.stringify(messages) %> 
+            <!-- based on the structure of your messages, determine how to display them -->
+            <% if(messages.quote) { %>
+                <% for (var msg of messages.quote) { %>
+                <h4 style="color: red"  ><%= msg %></h4>
+                <% } %>
+            <% } %>
+        </div>
+    </body>
+</html>

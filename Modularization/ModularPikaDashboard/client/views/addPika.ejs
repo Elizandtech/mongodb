@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <title>Add Pika</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="container">
+            <a href="/"><button class="btn btn-primary">Back to Pikas</button></a>
+            <div class="card my-5">
+                <div class="card-body">
+                    <h3 class="card-title">Make a Pika</h3>
+                    <form action="/pikas" method="POST">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" id="name" name="name">
+                        </div>
+                        <div class="form-group">
+                            <label for="age">Age</label>
+                            <input type="text" class="form-control" id="age" name="age">
+                        </div>
+                        <div class="form-group">
+                                <label for="fur_color">Fur Color</label>
+                                <input type="text" class="form-control" id="fur_color" name="fur_color">
+                            </div>
+                            <div class="form-group">
+                                <label for="food">Food</label>
+                                <input type="text" class="form-control" id="food" name="food">
+                            </div>
+                        <button type="submit" class="btn btn-success mx-3">Add My Pika!</button>
+                        
+                    </form>
+                </div>
+            </div>
+            <%#- JSON.stringify(messages) %> 
+            <!-- based on the structure of your messages, determine how to display them -->
+            <% if(messages.pika) { %>
+                <% for (var msg of messages.pika) { %>
+                <p style="color: red"  ><%= msg %></p>
+                <% } %>
+            <% } %>
+        </div>
+    </body>
+</html>

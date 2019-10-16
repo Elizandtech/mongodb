@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <title>Display Pika</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="container">
+            <a href="/"><button class="btn btn-primary">Back to Pikas</button></a>
+            <div class="card my-5">
+                <div class="card-body">
+                    <h3 class="card-title"><%=pikainfo.name%> Pika's Details</h3>
+                    <p class="card-text">Age: <%=pikainfo.age%></p>
+                    <p class="card-text">Fur Color : <%=pikainfo.fur_color%></p>
+                    <p class="card-text">Food: <%=pikainfo.food%></p>
+                </div>
+                <a href="/pikas/edit/<%=pikainfo.id%>"><button class="btn btn-primary">Edit Pika</button></a>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <title>Form </title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="container">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">Fill Out Form</h3>
+                    <form action="/users" method="POST">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" id="name" name="name">
+                        </div>
+                        <div class="form-group">
+                            <label for="age">Age</label>
+                            <input type="text" class="form-control" id="age" name="age">
+                        </div>
+                        <button type="submit" class="btn btn-success">Submit</button>
+                    </form>
+                </div>
+            </div>
+            <table class="table">
+                <thead>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Age
+                    </th>
+                </thead>
+                <% users.forEach(function(user){ %>
+                    <tr>
+                        <td>
+                            <%=user.name%>
+                        </td>
+                        <td>
+                            <%=user.age%>
+                        </td>
+                    </tr>
+                <% })%>
+            </table>
+        </div>
+    </body>
+</html>
